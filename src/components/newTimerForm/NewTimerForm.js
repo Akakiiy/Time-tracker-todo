@@ -2,15 +2,27 @@ import React, { useState } from 'react';
 
 const NewTimerForm = ({ onSubmit }) => {
     const [name, setName] = useState('');
-    const [color, setColor] = useState('#000000');
-    const [icon, setIcon] = useState('placeholder');
+    const [color, setColor] = useState('#ffffff');
+    const [icon, setIcon] = useState('иконка?');
+    const [inputStyle, setInputStyle] = useState({});
 
     const handleSubmit = (event) => {
         event.preventDefault();
+
+        const nameIsEmpty = !name.trim();
+        const nameIsOnlyNumbers = /^\d+$/.test(name);
+
+        if (nameIsEmpty || nameIsOnlyNumbers) {
+            setInputStyle({ borderColor: 'red' });
+            return;
+        } else {
+            setInputStyle({});
+        }
+
         onSubmit({ name, color, icon });
         setName('');
-        setColor('#000000');
-        setIcon('placeholder');
+        setColor('#ffffff');
+        setIcon('иконка?');
     };
 
     return (
@@ -21,6 +33,7 @@ const NewTimerForm = ({ onSubmit }) => {
                     type="text"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
+                    style={inputStyle}
                 />
             </label>
             <label>
@@ -35,7 +48,7 @@ const NewTimerForm = ({ onSubmit }) => {
                 Иконка:
                 <select value={icon} onChange={(e) => setIcon(e.target.value)}>
                     <option value="placeholder">Выберите иконку</option>
-                    <option value="icon1">Иконка 1</option>
+                    <option  value="icon1">Иконка 1</option>
                     <option value="icon2">Иконка 2</option>
                     <option value="icon3">Иконка 3</option>
                 </select>

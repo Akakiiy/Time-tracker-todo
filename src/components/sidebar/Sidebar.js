@@ -1,21 +1,19 @@
-import React, { useState } from 'react';
+import React, {} from 'react';
 import NewTimerForm from '../newTimerForm/NewTimerForm';
 import './Sidebar.css';
 
-const Sidebar = ({ onAddTimer }) => {
-    const [isOpen, setIsOpen] = useState(false);
+const Sidebar = ({ onAddTimer, openStatus, toggleStateSidebar }) => {
 
     const handleAddTimer = (timer) => {
         onAddTimer(timer);
-        setIsOpen(false);
     };
 
     return (
-        <div className={`sidebar${isOpen ? ' open' : ''}`}>
-            <button onClick={() => setIsOpen(!isOpen)}>
-                {isOpen ? 'Закрыть' : 'Добавить таймер'}
+        <div className={`sidebar${openStatus ? ' open' : ''}`}>
+            <button onClick={toggleStateSidebar}>
+                {'Закрыть'}
             </button>
-            {isOpen && <NewTimerForm onSubmit={handleAddTimer} />}
+                {openStatus && <NewTimerForm onSubmit={handleAddTimer} />}
         </div>
     );
 };

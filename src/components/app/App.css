@@ -1,15 +1,14 @@
 header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: #4CAF50;
     color: white;
     text-align: center;
     padding: 1rem;
     font-size: 1.5rem;
-}.timers {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1rem;
 }
+
 .add-timer {
     background-color: #4CAF50;
     color: white;
