@@ -44,6 +44,14 @@
     text-align: left;
     margin-bottom: 0.5rem;
 }
+.timer-interval {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.delete-interval {
+    margin-left: 4px;
+}
 .total-time {
     font-weight: bold;
 }

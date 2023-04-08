@@ -15,8 +15,14 @@ const Timer = ({ name, color, icon , onDelete, onChangeTimerName}) => {
     const [time, setTime] = useState(0);
     const [intervals, setIntervals] = useState([]);
 
-    const toggleStatus = (changeState) => {
-        changeState((timerStatus) => !timerStatus);
+    const toggleTimerStatus = (event) => {
+        if (!event.target.hasAttribute("data-no-toggle-timer")) {
+            setTimerStatus((timerStatus) => !timerStatus);
+        }
+    };
+
+    const toggleSettingsStatus = () => {
+        setTimerSettingsStatus((timerSettingsStatus) => !timerSettingsStatus);
     };
 
     useEffect(() => {
@@ -48,8 +54,11 @@ const Timer = ({ name, color, icon , onDelete, onChangeTimerName}) => {
     };
 
     const deleteTimerInterval = (numOfInterval) => {
-        setIntervals(intervals => [...intervals.splice(0, numOfInterval), ...intervals.slice(numOfInterval + 1, intervals.length)]);
-    }
+        setIntervals((intervals) => [
+            ...intervals.slice(0, numOfInterval),
+            ...intervals.slice(numOfInterval + 1),
+        ]);
+    };
 
     const deleteAllTimerIntervals = () => {
         setIntervals([]);
@@ -58,7 +67,7 @@ const Timer = ({ name, color, icon , onDelete, onChangeTimerName}) => {
     return (
         <div className={'timer-container'}>
             <div
-                onClick={() => toggleStatus(setTimerStatus)}
+                onClick={(event) => toggleTimerStatus(event)}
                 className="timer"
                 style={{
                     'backgroundColor': color ? color : '#ffffff',
@@ -67,15 +76,24 @@ const Timer = ({ name, color, icon , onDelete, onChangeTimerName}) => {
                 <div className="timer-name">{name}</div>
                 <div className="timer-intervals">
                     {intervals.map((interval, index) => (
-                        <div key={index}>{formatTime(interval)}<div onClick={() => deleteTimerInterval(index)}>&#9746;</div></div>
+                        <div
+                            className={'timer-interval'}
+                            key={index}>
+                            {formatTime(interval)}
+                            <div
+                              className={'delete-interval'}
+                              data-no-toggle-timer
+                              onClick={() => deleteTimerInterval(index)}>
+                              &times;
+                            </div>
+                        </div>
                     ))}
                 </div>
                 <div className="total-time">Суммарное время: {intervals[0] ? formatTime(intervals.reduce((a, b) => a+b)) : '0ч 0м 0c'}</div>
                 <div className="current-time">Текущее время: {formatTime(time)}</div>
-                <button>{timerStatus ? 'стоп' : 'старт'}</button>
+                <button data-no-toggle-timer
+                        onClick={toggleSettingsStatus}>{timerSettingsStatus ? <>&times;</> : <>Редактировать таймер</>}</button>
             </div>
-            <button className={'timer-settings-openbtn'}
-                    onClick={() => toggleStatus(setTimerSettingsStatus)}>{timerSettingsStatus ?  <div>&#8594;</div> : <div>...</div>}</button>
             <div className={timerSettingsStatus ? 'timer-settings-active' : 'timer-settings'}>
                 <button
                     onClick={onChangeTimerName}
@@ -86,7 +104,6 @@ const Timer = ({ name, color, icon , onDelete, onChangeTimerName}) => {
                     className={'timer-settings-btn'}>очистить интервалы</button>
             </div>
         </div>
-
     );
 };
 
