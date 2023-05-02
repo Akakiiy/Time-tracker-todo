@@ -3,6 +3,7 @@ import TimerSection from "./components/TimersSection/TimerSection";
 import Header from "./components/header/Header";
 import BottomSection from "./components/BottomSection/BottomSection";
 import Settings from "./components/Settings/Settings";
+import Colors from "./style/colors";
 
 const App = () => {
 
@@ -12,6 +13,7 @@ const App = () => {
             <TimerSection />
             <BottomSection/>
             <Settings/>
+            <Colors />
         </div>
     );
 };

@@ -1,0 +1,78 @@
+.colors-wrapper {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+.box {
+    margin: 10px 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 150px;
+    height: 150px;
+}
+.main1 {
+    background-color: rgb(249,216,205);
+    color: rgb(175,99,69);
+}
+.main2 {
+    background-color: rgb(138,169,251);
+    color: rgb(253,248,197);
+}
+.main3 {
+    background-color: rgb(76,54,85);
+    color: rgb(217,207,172);
+}
+.buttons1 {
+    background-color: rgb(223,190,221);
+    color: rgb(58,43,73);
+}
+.buttons2 {
+    background-color: rgb(250,229,201);
+    color: rgb(242,82,111);
+}
+.buttons3 {
+    background-color: rgb(206,90,119);
+    color: rgb(230,213,237);
+}
+.color1 {
+    background-color: rgb(201,232,179);
+    color: rgb(117,120,62);
+}
+.color2 {
+    background-color: rgb(228,234,209);
+    color: rgb(211,88,81);
+}
+.color3 {
+    background-color: rgb(208,158,178);
+    color: rgb(71,69,45);
+}
+.color4 {
+    background-color: rgb(234,222,225);
+    color: rgb(69,52,54);
+}
+.color5 {
+    background-color: rgb(228,234,209);
+    color: rgb(211,88,81);
+}
+.color6 {
+    background-color: rgb(250,201,221);
+    color: rgb(69,77,39);
+}
+.color7 {
+    background-color: rgb(127,212,227);
+    color: rgb(36,24,87);
+}
+.color8 {
+    background-color: rgb(223,217,227);
+    color: rgb(210,90,57);
+}
+.color9 {
+    background-color: rgb(68,72,46); color: rgb(226,215,178);
+}
+.color10 {
+    background-color: rgb(188,99,94); color: rgb(226,213,161);
+}
