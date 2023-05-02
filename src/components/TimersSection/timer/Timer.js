@@ -16,7 +16,7 @@ const Timer = ({ name, color, icon , onDelete, onChangeTimerName}) => {
     const [intervals, setIntervals] = useState([]);
 
     const toggleTimerStatus = (event) => {
-        if (!event.target.hasAttribute("data-no-toggle-timer")) {
+        if (!event.target.hasAttribute("data-no-toggle-Timer")) {
             setTimerStatus((timerStatus) => !timerStatus);
         }
     };

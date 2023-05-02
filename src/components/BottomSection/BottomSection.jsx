@@ -1,6 +1,6 @@
 import s from './BottomSection.module.css';
-import Calendar from "../calendar/Calendar";
-import BarChart from "../barChart/BarChart";
+import Calendar from "./Calendar/Calendar";
+import BarChart from "./BarChart/BarChart";
 
 const BottomSection = () => {
     return (
@@ -9,4 +9,6 @@ const BottomSection = () => {
             <BarChart />
         </div>
     )
-}
+};
+
+export default BottomSection

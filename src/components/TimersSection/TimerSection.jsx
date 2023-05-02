@@ -1,25 +1,25 @@
 const TimerSection = (props) => {
 
     // const onDelete = (numOfTimer) => {
-    //     setTimers(timers => timers.filter((timer, i) => i !== numOfTimer));
+    //     setTimers(timers => timers.filter((Timer, i) => i !== numOfTimer));
     // };
     // const onChangeTimerName = (numOfTimer, newNameOfTimer = 'newName') => {
-    //     setTimers(timers => timers.map((timer, i) => {
+    //     setTimers(timers => timers.map((Timer, i) => {
     //         if (numOfTimer === i) {
-    //             timer.name = newNameOfTimer;
-    //             return timer;
+    //             Timer.name = newNameOfTimer;
+    //             return Timer;
     //         } else {
-    //             return timer;
+    //             return Timer;
     //         }
     //     }));
     // };
     return (
         <div className="timers">
-            {/*{timers.map((timer, i) => (*/}
+            {/*{timers.map((Timer, i) => (*/}
             {/*    <Timer key={i}*/}
             {/*           onChangeTimerName={() => onChangeTimerName(i)}*/}
             {/*           onDelete={() => onDelete(i)}*/}
-            {/*           {...timer}/>*/}
+            {/*           {...Timer}/>*/}
             {/*))}*/}
         </div>
     );
