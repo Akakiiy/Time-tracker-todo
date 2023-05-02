@@ -83,7 +83,8 @@ const Timer = ({ name, color, icon , onDelete, onChangeTimerName}) => {
                             <div
                               className={'delete-interval'}
                               data-no-toggle-timer
-                              onClick={() => deleteTimerInterval(index)}>
+                              onClick={() => deleteTimerInterval(index)}
+                            >
                               &times;
                             </div>
                         </div>

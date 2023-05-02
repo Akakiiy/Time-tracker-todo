@@ -48,7 +48,9 @@ const NewTimerForm = ({ onSubmit }) => {
                 Иконка:
                 <select value={icon} onChange={(e) => setIcon(e.target.value)}>
                     <option value="placeholder">Выберите иконку</option>
-                    <option  value="icon1">Иконка 1</option>
+                    <option  value="icon1">
+                        <div><img src="" alt=""/></div>
+                    </option>
                     <option value="icon2">Иконка 2</option>
                     <option value="icon3">Иконка 3</option>
                 </select>
