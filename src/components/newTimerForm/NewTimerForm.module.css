@@ -1,0 +1,30 @@
+.formWrapper {
+    height: 80%;
+    width: 80%;
+    border: 1px solid;
+    display: grid;
+    place-items: center;
+    transition: height 1s;
+}
+.open {
+    height: 80vh;
+}
+.form {
+
+}
+.geometry {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 10px;
+}
+.geometryInput {
+    display: grid;
+    place-items: center;
+    gap: 10px;
+}
+.shape {
+    width: 40px;
+    height: 40px;
+    background-color: rgb(76,54,85);
+}

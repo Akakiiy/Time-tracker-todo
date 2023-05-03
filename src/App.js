@@ -13,13 +13,12 @@ const App = () => {
             <div className={s.appWrapper}>
                 <Header/>
                 <Switch>
-                    <Route exact path={'/'} >
+                    <Route path={'/'} >
                         <TimerSection/>
                         <Calendar/>
                         <EmptySection/>
                     </Route>
-                    <Route path={'/settings'} render={() => <Settings/>}/>
-                    {/*<NewTimerForm />*/}
+                    <Route exact path={'/settings'} render={() => <Settings/>}/>
                 </Switch>
             </div>
         </div>

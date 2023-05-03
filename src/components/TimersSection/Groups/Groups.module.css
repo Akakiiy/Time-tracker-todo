@@ -1,0 +1,15 @@
+.groups {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    justify-items: center;
+    align-items: center;
+    row-gap: 3px;
+}
+.group {
+    width: 130px;
+    height: 40px;
+    border: 2px solid black;
+    border-radius: 4px;
+    display: grid;
+    place-items: center;
+}

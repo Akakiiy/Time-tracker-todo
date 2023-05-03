@@ -1,0 +1,45 @@
+.square, .circle, .rhombus {
+    display: grid;
+    place-items: center;
+    width: 150px;
+    height: 150px;
+    box-shadow: -2px 2px rgba(0, 0, 0, 0.25);
+    transition: box-shadow .15s ease-out;
+}
+.squareInner,
+.circleInner,
+.rhombusInner {
+    display: grid;
+    place-items: center;
+}
+.square:hover,
+.circle:hover,
+.rhombus:hover {
+    transform: scale(1.02);
+    box-shadow: -4px 4px rgba(0, 0, 0, 0.25);
+}
+.squareInner {
+    width: 80%;
+    height: 80%;
+}
+.circle {
+    border-radius: 100%;
+}
+.circleInner {
+    height: 70%;
+    width: 70%;
+}
+.rhombus {
+    width: 106px;
+    height: 106px;
+    transform: rotate(45deg);
+}
+.rhombusInner {
+    width: 66%;
+    height: 70.75%;
+    transform: rotate(-45deg);
+}
+.rhombus:hover {
+    transform: scale(1.02) rotate(45deg);
+    box-shadow: -4px 4px 4px rgba(0, 0, 0, 0.25);
+}
