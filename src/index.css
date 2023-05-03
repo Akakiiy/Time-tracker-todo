@@ -1,4 +1,5 @@
-@import 'style/buttons.css';
+@import 'style/buttons/neonButton.css';
+@import 'style/colors.css';
 
 body,
 html {

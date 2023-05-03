@@ -34,17 +34,13 @@
     background-color: rgb(250,229,201);
     color: rgb(242,82,111);
 }
-.buttons3 {
+.color1 {
     background-color: rgb(206,90,119);
     color: rgb(230,213,237);
 }
-.color1 {
+.color2 {
     background-color: rgb(201,232,179);
     color: rgb(117,120,62);
-}
-.color2 {
-    background-color: rgb(228,234,209);
-    color: rgb(211,88,81);
 }
 .color3 {
     background-color: rgb(208,158,178);
@@ -71,8 +67,10 @@
     color: rgb(210,90,57);
 }
 .color9 {
-    background-color: rgb(68,72,46); color: rgb(226,215,178);
+    background-color: rgb(68,72,46);
+    color: rgb(226,215,178);
 }
 .color10 {
-    background-color: rgb(188,99,94); color: rgb(226,213,161);
+    background-color: rgb(188,99,94);
+    color: rgb(226,213,161);
 }

@@ -1,0 +1,14 @@
+.app {
+
+}
+.appWrapper {
+    margin: 0 auto;
+    width: 80%;
+    display: grid;
+    grid-template-rows: 100px 2fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+    'header header'
+    'timerSection timerSection'
+    'emptySection calendar';
+}

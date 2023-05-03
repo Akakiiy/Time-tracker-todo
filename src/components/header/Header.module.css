@@ -1,0 +1,19 @@
+.header {
+    grid-area: header;
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    padding: 20px;
+    justify-items: center;
+    align-items: center;
+}
+.banner {
+    text-decoration: underline;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 36px;
+}
+.settingsBtn {
+    padding: 10px 20px;
+    height: 70%;
+    width: 70%;
+}

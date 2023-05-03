@@ -1,6 +1,8 @@
+import s from './Calendar.module.css';
+
 const Calendar = () => {
     return (
-        <div>
+        <div className={s.calendar + ' buttons2'}>
             Календарь
         </div>
     );
