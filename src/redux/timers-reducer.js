@@ -14,7 +14,7 @@ const timersReducer = (state = initialValues, action) => {
             return {
                 ...state,
                 timers: [...state.timers, {
-                    id: action.id,
+                    id: state.timers.length + 1,
                     geometry: action.geometry,
                     name: action.name,
                     icon: action.icon,
@@ -26,14 +26,13 @@ const timersReducer = (state = initialValues, action) => {
     }
 }
 
-export const addTimer = (timerData) => {
+export const addTimer = ({geometry, name, icon, color}) => {
     return {
         type: ADD_TIMER,
-        id: timerData.id,
-        geometry: timerData.geometry,
-        name: timerData.name,
-        icon: timerData.icon,
-        color: timerData.color,
+        geometry,
+        name,
+        icon,
+        color,
     }
 }
 

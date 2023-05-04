@@ -1,6 +1,5 @@
 import Timers from "./Timers";
 import {connect} from "react-redux";
-import {addTimer} from "../../../redux/timers-reducer";
 import {getTimersSelector} from "../../../redux/selectors/timers-selectors";
 
 const TimersContainer = ({timers}) => {
@@ -14,6 +13,4 @@ const mapStateToProps = (state) => {
         timers: getTimersSelector(state),
     }
 };
-export default connect(mapStateToProps, {
-    addTimer,
-})(TimersContainer)
+export default connect(mapStateToProps, {})(TimersContainer)

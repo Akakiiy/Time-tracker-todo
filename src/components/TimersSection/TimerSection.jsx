@@ -2,14 +2,14 @@ import s from './TimerSection.module.css';
 import NeonButton from "../../style/buttons/NeonButton";
 import Groups from "./Groups/Groups";
 import TimersContainer from "./Timers/TimersContainer";
-import NewTimerForm from "../NewTimerForm/NewTimerForm";
+import NewTimerFormContainer from "../NewTimerForm/NewTimerFormContainer";
 
-const TimerSection = (props) => {
+const TimerSection = () => {
 
     return (
         <div className={(s.timerSection) + ' main1'}>
             <div className={s.settings}>
-                <NewTimerForm />
+                <NewTimerFormContainer />
                 <NeonButton mainClass={s.addTimer}
                             btnStyle={'neon-btn1'}
                             btnText={'add timer'}/>
