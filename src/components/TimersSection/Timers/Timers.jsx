@@ -7,13 +7,16 @@ const Timers = ({timers}) => {
             {
                 [...timers].reverse().map(timer => {
                     return (
-                        <div className={'square'}
+                        <div className={timer.geometry}
                              key={timer.id}
                              style={{
-                                 'backgroundColor': timer.color,
+                                 backgroundColor: timer.color,
                              }}>
-                            <div className={'squareInner'}>
-                                <div>form : {timer.from}</div>
+                            <div className={timer.geometry + 'Inner'}
+                                 style={{
+                                     color: timer.colorText,
+                                 }}>
+                                <div>form : {timer.geometry}</div>
                                 <div> name : {timer.name}</div>
                                 <div>icon : {timer.icon}</div>
                             </div>

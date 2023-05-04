@@ -3,8 +3,8 @@ const SET_VALUES_FOR_NEW_TIMER = 'SET_VALUES_FOR_NEW_TIMER';
 
 const initialValues = {
     addNewTimerMode: false,
-    initialValuesForTimerForm: {geometry: '', name: '', icon: false, color: '#ffffff'},
-    valuesForNewTimer: {geometry: '', name: '', icon: false, color: '#ffffff'},
+    initialValuesForTimerForm: {geometry: '', name: '', icon: false, color: '#ffffff',colorText: '#000000'},
+    valuesForNewTimer: null,
 }
 
 const newTimerFormReducer = (state = initialValues, action) => {

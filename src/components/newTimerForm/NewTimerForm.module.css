@@ -10,7 +10,7 @@
     height: 80vh;
 }
 .form {
-
+    position: relative;
 }
 .submitBtn {
     margin-top: 30px;

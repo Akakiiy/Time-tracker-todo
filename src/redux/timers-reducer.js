@@ -2,9 +2,9 @@ const ADD_TIMER = 'ADD_TIMER';
 
 const initialValues = {
     timers: [
-        {id: 1, geometry: '1', name: 'timer', icon: 'random', color: 'rgb(138,169,251)'},
-        {id: 2, geometry: '1', name: 'timer', icon: 'random', color: 'rgb(138,169,251)'},
-        {id: 3, geometry: '2', name: 'timer', icon: 'random', color: 'rgb(138,169,251)'},
+        {id: 1, geometry: 'square', name: 'timer', icon: 'random', color: 'rgb(170,138,251)', colorText: 'rgb(0, 0, 0)',},
+        {id: 2, geometry: 'circle', name: 'timer', icon: 'random', color: 'rgb(138,169,251)', colorText: 'rgb(0, 0, 0)',},
+        {id: 3, geometry: 'square', name: 'timer', icon: 'random', color: 'rgb(46,253,139)', colorText: 'rgb(0, 0, 0)',},
     ],
 };
 
@@ -19,6 +19,7 @@ const timersReducer = (state = initialValues, action) => {
                     name: action.name,
                     icon: action.icon,
                     color: action.color,
+                    colorText: action.colorText
                 }]
             }
         default:
@@ -26,13 +27,14 @@ const timersReducer = (state = initialValues, action) => {
     }
 }
 
-export const addTimer = ({geometry, name, icon, color}) => {
+export const addTimer = ({geometry, name, icon, color, colorText}) => {
     return {
         type: ADD_TIMER,
         geometry,
         name,
         icon,
         color,
+        colorText,
     }
 }
 
