@@ -1,7 +1,7 @@
 import s from "../NewTimerForm.module.css";
 import {Field} from "formik";
 
-const GeometryInput = ({geometry}) => {
+const GeometryInput = ({geometry, changeValueForTimerPrototype}) => {
 
     return (
         <div className={s.geometryInput}>
@@ -9,7 +9,8 @@ const GeometryInput = ({geometry}) => {
                 <Field className={s.inputClass}
                        type="radio"
                        name="geometry"
-                       value={geometry}/>
+                       value={geometry}
+                       onClick={changeValueForTimerPrototype}/>
             </label>
         </div>
     )

@@ -1,11 +1,10 @@
 import s from './App.module.css';
-import TimerSection from "./components/TimersSection/TimerSection";
 import Header from "./components/header/Header";
 import Calendar from "./components/Calendar/Calendar";
 import EmptySection from "./components/EmptySection/EmptySection";
 import Settings from "./components/Settings/Settings";
 import {Route, Switch} from "react-router-dom";
-
+import TimerSectionContainer from "./components/TimersSection/TimerSectionContainer";
 const App = () => {
 
     return (
@@ -14,7 +13,7 @@ const App = () => {
                 <Header/>
                 <Switch>
                     <Route path={'/'} >
-                        <TimerSection/>
+                        <TimerSectionContainer />
                         <Calendar/>
                         <EmptySection/>
                     </Route>

@@ -16,3 +16,5 @@ root.render(
       </HashRouter>
   // </React.StrictMode>
 );
+
+window.store = store;

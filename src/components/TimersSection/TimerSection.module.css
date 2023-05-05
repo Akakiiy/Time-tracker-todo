@@ -1,22 +1,42 @@
 .timerSection {
     grid-area: timerSection;
     display: grid;
-    grid-template-rows: minmax(150px, 400px) 4fr 1fr;
-    grid-gap: 3px;
+    grid-template-rows: auto auto auto;
+    grid-gap: 50px;
 }
 .settings {
+    height: 400px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-areas: 'none addTimer editTimers';
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas: 'none none addTimer editTimers';
     align-items: center;
     justify-items: center;
 }
+.addingTimerWrapper {
+    height: 80%;
+    width: 80%;
+    display: grid;
+    place-items: center;
+}
+.newTimerPrototype {
+    width: 70%;
+    height: 80%;
+    overflow: hidden;
+    border: 1px solid;
+    display: grid;
+    place-items: center;
+    transition: height 1s;
+}
 .addTimer {
     grid-area: addTimer;
-    height: 70%;
-    width: 40%;
+    height: 30%;
+    width: 50%;
 }
 .editTimers {
     grid-area: editTimers;
-    height: 20%;
+    height: 10%;
+}
+.timerPrototype {
+
 }

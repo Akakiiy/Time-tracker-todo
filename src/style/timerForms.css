@@ -1,4 +1,4 @@
-.square, .circle, .rhombus {
+.square, .circle, .parallelogram {
     display: grid;
     place-items: center;
     width: 150px;
@@ -8,15 +8,20 @@
     box-shadow: -2px 2px rgba(0, 0, 0, 0.25);
     transition: box-shadow .15s ease-out;
 }
+.parallelogram {
+    -webkit-transform: skew(15deg);
+}
 .squareInner,
 .circleInner,
-.rhombusInner {
+.parallelogramInner {
     display: grid;
     place-items: center;
+    width: 100%;
+
 }
 .square:hover,
 .circle:hover,
-.rhombus:hover {
+.parallelogram:hover {
     transform: scale(1.02);
     box-shadow: -4px 4px rgba(0, 0, 0, 0.25);
 }
@@ -31,18 +36,9 @@
     height: 70%;
     width: 70%;
 }
-.rhombus {
-    margin: 23px 0;
-    width: 106px;
-    height: 106px;
-    transform: rotate(45deg);
+.parallelogramInner {
+    -webkit-transform: skew(-15deg);
 }
-.rhombusInner {
-    width: 66%;
-    height: 70.75%;
-    transform: rotate(-45deg);
-}
-.rhombus:hover {
-    transform: scale(1.02) rotate(45deg);
-    box-shadow: -4px 4px 4px rgba(0, 0, 0, 0.25);
+.parallelogram:hover {
+    -webkit-transform: skew(15deg) scale(1.02);
 }

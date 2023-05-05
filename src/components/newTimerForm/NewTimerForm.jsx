@@ -1,40 +1,59 @@
 import s from './NewTimerForm.module.css';
 import {Formik, Field, Form, ErrorMessage} from "formik";
-import GeometryInput from "./GeometryInput/GeometryInput";
+import GeometryInput from "./CastomRadioInputs/GeometryInput";
 import NeonButton from "../../style/buttons/NeonButton";
-import {useState} from "react";
 import SelectIconPage from "./SelectIconPage/SelectIconPage";
+import {useState} from "react";
 
-const NewTimerForm = ({initialValuesForTimerForm, changeFormMode, setValuesForNewTimer, addTimer}) => {
-    const [selectIconMode, setSelectIconMode] = useState(true);
+const NewTimerForm = ({newTimerCreateMode, initialValuesForTimerForm, changeFormMode, setValueForNewTimer, addTimer, icons}) => {
+    const [selectIconMode, setSelectIconMode] = useState(false);
 
-    const toggleSelectIconMode = () => {
+    const toggleIconSelectMode = () => {
         setSelectIconMode(!selectIconMode);
+    };
+
+    const changeValueForTimerPrototype = (e) => {
+        let newValue = e.target.value;
+        let currentName = e.target.name;
+        console.log({[currentName]: newValue});
+        setValueForNewTimer({[currentName]: newValue});
     }
 
     return (
-        <div className={s.formWrapper + ' main1'}>
+        <div style={{height: newTimerCreateMode ? '' : '0'}}
+             className={s.formWrapper + ' main1'}>
             <Formik
                 initialValues={initialValuesForTimerForm}
                 // validate={}
                 onSubmit={(values, {resetForm}) => {
-                    changeFormMode()
-                    addTimer(values)
+                    addTimer(values);
+                    changeFormMode();
                     resetForm(initialValuesForTimerForm);
                 }}
             >
                     <Form className={s.form} >
                         <div className={s.geometry}>
-                            <GeometryInput geometry={'square'}/>
-                            <GeometryInput geometry={'circle'}/>
-                            <GeometryInput geometry={'rhombus'}/>
+                            <GeometryInput changeValueForTimerPrototype={changeValueForTimerPrototype}
+                                           geometry={'square'}/>
+                            <GeometryInput changeValueForTimerPrototype={changeValueForTimerPrototype}
+                                           geometry={'circle'}/>
+                            <GeometryInput changeValueForTimerPrototype={changeValueForTimerPrototype}
+                                           geometry={'parallelogram'}/>
                         </div>
                         <div>
-                            <div style={{width: '20px', height: '20px', borderRadius: '100%', backgroundColor: 'black'}} />
-                            <SelectIconPage />
-                            <Field type="checkbox" name="icon"/>
+                            <div className={s.showIcons}
+                                 onClick={toggleIconSelectMode}>
+                                <div>
+                                    {initialValuesForTimerForm.icon || 'icon'}
+                                </div>
+                            </div>
+                            <SelectIconPage icons={icons}
+                                            toggleIconSelectMode={toggleIconSelectMode}
+                                            active={selectIconMode}
+                                            changeValueForTimerPrototype={changeValueForTimerPrototype}/>
                         </div>
                         <div>
+                            <label className={s.labelForInputs}>form color:</label>
                             <Field type="color" name="color" />
                         </div>
                         <div className={s.nameInputWrapper}>
@@ -45,12 +64,13 @@ const NewTimerForm = ({initialValuesForTimerForm, changeFormMode, setValuesForNe
                             <ErrorMessage name="name" component="div" />
                         </div>
                         <div>
+                            <label className={s.labelForInputs}>text color:</label>
                             <Field type="color" name="colorText" />
                         </div>
                         <NeonButton mainClass={s.submitBtn}
-                                    btnStyle={'neon-btn4'}
-                                    btnText={'Create'}
-                                    typeBtn={'submit'}/>
+                                              btnStyle={'neon-btn4'}
+                                              btnText={'Create'}
+                                              typeBtn={'submit'}/>
                     </Form>
             </Formik>
         </div>

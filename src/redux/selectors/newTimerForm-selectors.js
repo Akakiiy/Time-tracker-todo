@@ -1,12 +1,12 @@
 import {createSelector} from "reselect";
 
-const getAddNewTimerMode = (state) => {
-    return state.newTimerForm.addNewTimerMode;
+const getNewTimerCreateMode = (state) => {
+    return state.newTimerForm.newTimerCreateMode;
 };
-export const getAddNewTimerModeSelector = createSelector(getAddNewTimerMode,
-    (addNewTimerMode) => {
-    return addNewTimerMode
-});
+export const getNewTimerCreateModeSelector = createSelector(getNewTimerCreateMode,
+    (newTimerCreateMode) => {
+        return newTimerCreateMode
+    });
 
 const getValuesForNewTimer = (state) => {
     return state.newTimerForm.valuesForNewTimer
@@ -22,4 +22,12 @@ const getInitialValuesForTimerForm = (state) => {
 export const getInitialValuesForTimerFormSelector = createSelector(getInitialValuesForTimerForm,
     (initialValuesForTimerForm) => {
         return initialValuesForTimerForm;
+});
+
+const getIcons = (state) => {
+    return state.newTimerForm.icons;
+};
+export const getIconsSelector = createSelector(getIcons,
+    (icons) => {
+    return icons;
 });

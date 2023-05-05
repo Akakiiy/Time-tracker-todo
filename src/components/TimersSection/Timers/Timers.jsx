@@ -1,42 +1,23 @@
 import s from './Timers.module.css';
+import Timer from "../Timer/Timer";
 
 const Timers = ({timers}) => {
     return (
         <div className={s.timers}>
 
             {
-                [...timers].reverse().map(timer => {
+                [...timers].reverse().map((timer, index) => {
                     return (
-                        <div className={timer.geometry}
-                             key={timer.id}
-                             style={{
-                                 backgroundColor: timer.color,
-                             }}>
-                            <div className={timer.geometry + 'Inner'}
-                                 style={{
-                                     color: timer.colorText,
-                                 }}>
-                                <div>form : {timer.geometry}</div>
-                                <div> name : {timer.name}</div>
-                                <div>icon : {timer.icon}</div>
-                            </div>
-                        </div>
+                        <Timer key={index}
+                               id={timer.id}
+                               geometry={timer.geometry}
+                               color={timer.color}
+                               colorText={timer.colorText}
+                               name={timer.name}
+                               icon={timer.icon}/>
                     )
                 })
             }
-            <div className={'circle'}>
-                <div className={'circleInner'}>
-                    <div>form : timer.from</div>
-                    <div> name : timer.name</div>
-                    <div>icon : timer.icon</div>
-                </div>
-            </div>
-            <div className={'rhombus'}>
-                <div className={'rhombusInner'}>
-                    <div>form : timer.from</div>
-                    <div> name : timer.name</div>
-                </div>
-            </div>
         </div>
     );
 };
