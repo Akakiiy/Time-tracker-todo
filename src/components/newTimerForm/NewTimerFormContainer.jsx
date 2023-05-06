@@ -1,7 +1,7 @@
 import {
     getIconsSelector,
     getInitialValuesForTimerFormSelector,
-    getNewTimerCreateModeSelector,
+    getNewTimerCreateModeSelector, getValuesForNewTimerSelector,
 } from "../../redux/selectors/newTimerForm-selectors";
 import {connect} from "react-redux";
 import {changeFormMode, setValueForNewTimer} from "../../redux/newTimerForm-reducer";
@@ -13,6 +13,7 @@ const mapStateToProps = (state) => {
         initialValuesForTimerForm: getInitialValuesForTimerFormSelector(state),
         icons: getIconsSelector(state),
         newTimerCreateMode: getNewTimerCreateModeSelector(state),
+        valuesForNewTimerSelector: getValuesForNewTimerSelector(state),
     }
 };
 export default connect(mapStateToProps, {changeFormMode, setValueForNewTimer, addTimer})(NewTimerForm);

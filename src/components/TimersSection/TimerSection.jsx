@@ -24,7 +24,7 @@ const TimerSection = ({newTimerCreateMode, changeFormMode, timers, valuesForNewT
                                geometry={valuesForNewTimerSelector.geometry}
                                color={valuesForNewTimerSelector.color}
                                colorText={valuesForNewTimerSelector.colorText}
-                               name={valuesForNewTimerSelector.name}
+                               name={valuesForNewTimerSelector.name || '.....'}
                                icon={valuesForNewTimerSelector.icon}/>
                     </div>
                 </div>

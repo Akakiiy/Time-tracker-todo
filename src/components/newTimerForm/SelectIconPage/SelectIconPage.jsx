@@ -1,6 +1,8 @@
+import React from "react";
 import s from './SelectIconPage.module.css';
 import {Field} from "formik";
-const SelectIconPage = ({active, toggleIconSelectMode, icons, changeValueForTimerPrototype}) => {
+const SelectIconPage = ({active, toggleIconSelectMode,
+                            icons, changeValueForTimerPrototype, pikedIcon}) => {
 
     return (
         <div className={`${s.iconPage} ${active ? s.active : ''} buttons2`}>
@@ -11,11 +13,16 @@ const SelectIconPage = ({active, toggleIconSelectMode, icons, changeValueForTime
                 </div>
                 <div className={s.iconsBlock}>
                     {
-                        icons.map(icon => {
+                        icons.map(({id, value}) => {
+                            console.log('зарендерились иконки')
                             return (
-                                <label key={icon.id} className={s.icon + ' color10'}>
+                                <label key={id}
+                                       className={s.icon + ' color4'}
+                                       style={{border: pikedIcon === value ? '2px solid rgb(138,169,251)' : ''}}
+                                >
+                                    <img src={value} alt={id}/>
                                     <Field className={s.input}
-                                           type="radio" name="icon" value={icon.value}
+                                           type="radio" name="icon" value={value}
                                            onClick={changeValueForTimerPrototype}/>
                                 </label>
                             );

@@ -2,9 +2,9 @@ const ADD_TIMER = 'ADD_TIMER';
 
 const initialValues = {
     timers: [
-        {id: 1, geometry: 'square', name: 'timer', icon: 'random', color: 'rgb(170,138,251)', colorText: 'rgb(0, 0, 0)',},
-        {id: 2, geometry: 'circle', name: 'timer', icon: 'random', color: 'rgb(138,169,251)', colorText: 'rgb(0, 0, 0)',},
-        {id: 3, geometry: 'parallelogram', name: 'timer', icon: 'random', color: 'rgb(46,253,139)', colorText: 'rgb(0, 0, 0)',},
+        {id: 1, geometry: 'square', name: 'fake timer', icon: 'random', color: 'rgb(246,214,5)', colorText: 'rgb(0, 0, 0)',},
+        {id: 2, geometry: 'circle', name: 'fake timer', icon: 'random', color: 'rgb(176,138,251)', colorText: 'rgb(0, 0, 0)',},
+        {id: 3, geometry: 'parallelogram', name: 'fake timer', icon: 'random', color: 'rgba(46,253,139,0.58)', colorText: 'rgb(0, 0, 0)',},
     ],
 };
 

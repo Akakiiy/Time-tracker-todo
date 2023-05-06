@@ -16,8 +16,9 @@
 .parallelogramInner {
     display: grid;
     place-items: center;
-    width: 100%;
-
+    width: 76%;
+    height: 100%;
+    overflow: hidden;
 }
 .square:hover,
 .circle:hover,

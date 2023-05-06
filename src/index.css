@@ -1,6 +1,7 @@
 @import 'style/buttons/neonButton.css';
 @import 'style/colors.css';
 @import "style/timerForms.css";
+@import "style/animationForTimers.css";
 
 body,
 html {

@@ -1,0 +1,16 @@
+/*animation for React Transition Group*/
+
+.animatedTimers-enter {
+    width: 0;
+}
+.animatedTimers-enter-active {
+    width: 152px;
+    transition: width .7s;
+}
+.animatedTimers-exit {
+    width: 152px;
+}
+.animatedTimers-exit-active {
+    width: 0;
+    transition: width .7s;
+}

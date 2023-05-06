@@ -4,8 +4,9 @@ import GeometryInput from "./CastomRadioInputs/GeometryInput";
 import NeonButton from "../../style/buttons/NeonButton";
 import SelectIconPage from "./SelectIconPage/SelectIconPage";
 import {useState} from "react";
+import * as Yup from 'yup';
 
-const NewTimerForm = ({newTimerCreateMode, initialValuesForTimerForm, changeFormMode, setValueForNewTimer, addTimer, icons}) => {
+const NewTimerForm = ({newTimerCreateMode, initialValuesForTimerForm, changeFormMode, setValueForNewTimer, addTimer, icons, valuesForNewTimerSelector}) => {
     const [selectIconMode, setSelectIconMode] = useState(false);
 
     const toggleIconSelectMode = () => {
@@ -15,7 +16,9 @@ const NewTimerForm = ({newTimerCreateMode, initialValuesForTimerForm, changeForm
     const changeValueForTimerPrototype = (e) => {
         let newValue = e.target.value;
         let currentName = e.target.name;
-        console.log({[currentName]: newValue});
+        if (currentName === 'name' && newValue.length >= 36) {
+            newValue = newValue.slice(0,36);
+        }
         setValueForNewTimer({[currentName]: newValue});
     }
 
@@ -24,54 +27,82 @@ const NewTimerForm = ({newTimerCreateMode, initialValuesForTimerForm, changeForm
              className={s.formWrapper + ' main1'}>
             <Formik
                 initialValues={initialValuesForTimerForm}
-                // validate={}
+                validationSchema={Yup.object().shape({
+                    name: Yup.string().max(35, 'Sorry but it\'s Too Long!')
+                })}
                 onSubmit={(values, {resetForm}) => {
-                    addTimer(values);
                     changeFormMode();
-                    resetForm(initialValuesForTimerForm);
+                    setTimeout(() => {
+                        addTimer(values);
+                        setValueForNewTimer(initialValuesForTimerForm);
+                        resetForm(initialValuesForTimerForm);
+                    }, 1000)
                 }}
+                validateOnBlur={true}
             >
-                    <Form className={s.form} >
-                        <div className={s.geometry}>
-                            <GeometryInput changeValueForTimerPrototype={changeValueForTimerPrototype}
-                                           geometry={'square'}/>
-                            <GeometryInput changeValueForTimerPrototype={changeValueForTimerPrototype}
-                                           geometry={'circle'}/>
-                            <GeometryInput changeValueForTimerPrototype={changeValueForTimerPrototype}
-                                           geometry={'parallelogram'}/>
-                        </div>
-                        <div>
-                            <div className={s.showIcons}
-                                 onClick={toggleIconSelectMode}>
-                                <div>
-                                    {initialValuesForTimerForm.icon || 'icon'}
-                                </div>
+                {({ handleChange }) => (
+                        <Form className={s.form} >
+                            <div className={s.geometry}>
+                                <GeometryInput pikedGeometry={valuesForNewTimerSelector.geometry}
+                                               changeValueForTimerPrototype={changeValueForTimerPrototype}
+                                               geometry={'square'}/>
+                                <GeometryInput pikedGeometry={valuesForNewTimerSelector.geometry}
+                                               changeValueForTimerPrototype={changeValueForTimerPrototype}
+                                               geometry={'circle'}/>
+                                <GeometryInput pikedGeometry={valuesForNewTimerSelector.geometry}
+                                               changeValueForTimerPrototype={changeValueForTimerPrototype}
+                                               geometry={'parallelogram'}/>
                             </div>
-                            <SelectIconPage icons={icons}
-                                            toggleIconSelectMode={toggleIconSelectMode}
-                                            active={selectIconMode}
-                                            changeValueForTimerPrototype={changeValueForTimerPrototype}/>
-                        </div>
-                        <div>
-                            <label className={s.labelForInputs}>form color:</label>
-                            <Field type="color" name="color" />
-                        </div>
-                        <div className={s.nameInputWrapper}>
-                            <Field className={s.nameInput + ' color8'}
-                                   type="text"
-                                   name="name"
-                                   placeholder={'name for your timer'}/>
-                            <ErrorMessage name="name" component="div" />
-                        </div>
-                        <div>
-                            <label className={s.labelForInputs}>text color:</label>
-                            <Field type="color" name="colorText" />
-                        </div>
-                        <NeonButton mainClass={s.submitBtn}
-                                              btnStyle={'neon-btn4'}
-                                              btnText={'Create'}
-                                              typeBtn={'submit'}/>
-                    </Form>
+                            <div>
+                                <div className={s.showIcons}
+                                     onClick={toggleIconSelectMode}>
+                                    <img src={valuesForNewTimerSelector.icon} alt={'selectedImg'} />
+                                </div>
+                                <SelectIconPage icons={icons}
+                                                toggleIconSelectMode={toggleIconSelectMode}
+                                                active={selectIconMode}
+                                                pikedIcon={valuesForNewTimerSelector.icon}
+                                                changeValueForTimerPrototype={changeValueForTimerPrototype}/>
+                            </div>
+                            <div>
+                                <label className={s.labelForInputs}>form color:</label>
+                                <Field type="color" name="color"
+                                       onChange={e => {
+                                           handleChange(e);
+                                           changeValueForTimerPrototype(e);
+                                       }}/>
+                            </div>
+                            <div className={s.nameInputWrapper}>
+                                <Field className={s.nameInput + ' color8'}
+                                       type="text"
+                                       name="name"
+                                       placeholder={'name for your timer'}
+                                       value={valuesForNewTimerSelector.name}
+                                       onChange={e => {
+                                           handleChange(e);
+                                           changeValueForTimerPrototype(e);
+                                       }}/>
+                                <ErrorMessage name="name"
+                                              component="div"
+                                              style={{
+                                                  color: 'rgb(76,54,85)',
+                                                  textDecoration: 'underline'
+                                              }}/>
+                            </div>
+                            <div>
+                                <label className={s.labelForInputs}>text color:</label>
+                                <Field type="color" name="colorText"
+                                       onChange={e => {
+                                           handleChange(e);
+                                           changeValueForTimerPrototype(e);
+                                       }}/>
+                            </div>
+                            <NeonButton mainClass={s.submitBtn}
+                                        btnStyle={'neon-btn4'}
+                                        btnText={'Create'}
+                                        typeBtn={'submit'}/>
+                        </Form>
+                )}
             </Formik>
         </div>
     );
