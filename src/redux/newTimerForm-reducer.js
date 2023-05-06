@@ -1,15 +1,5 @@
 import startIcon from '../assets/icons/052.svg'
 
-let importedIcons = [];
-
-for (let i = 1; i <= 375; i++) {
-    const iconNumber = ('00' + i).slice(-3);
-    import(`../assets/icons/${iconNumber}.svg`).then(icon => {
-        importedIcons.push({ id: i, value: icon.default });
-    });
-    console.log('произведен импорт');
-}
-
 const CHANGE_FORM_MODE = 'CHANGE_FORM_MODE';
 const SET_VALUES_FOR_NEW_TIMER = 'SET_VALUES_FOR_NEW_TIMER';
 
@@ -19,7 +9,6 @@ let initialValues = {
     newTimerCreateMode: false,
     initialValuesForTimerForm: initialValuesForTimerForm,
     valuesForNewTimer: initialValuesForTimerForm,
-    icons: importedIcons,
 }
 
 const newTimerFormReducer = (state = initialValues, action) => {

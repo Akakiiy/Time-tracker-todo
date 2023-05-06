@@ -6,7 +6,7 @@ import SelectIconPage from "./SelectIconModal/SelectIconModal";
 import {useState} from "react";
 import * as Yup from 'yup';
 
-const NewTimerForm = ({newTimerCreateMode, initialValuesForTimerForm, changeFormMode, setValueForNewTimer, addTimer, icons, valuesForNewTimerSelector}) => {
+const NewTimerForm = ({newTimerCreateMode, initialValuesForTimerForm, changeFormMode, setValueForNewTimer, addTimer, valuesForNewTimerSelector}) => {
     const [selectIconMode, setSelectIconMode] = useState(false);
 
     const toggleIconSelectMode = () => {
@@ -58,11 +58,10 @@ const NewTimerForm = ({newTimerCreateMode, initialValuesForTimerForm, changeForm
                                      onClick={toggleIconSelectMode}>
                                     <img src={valuesForNewTimerSelector.icon} alt={'selectedImg'} />
                                 </div>
-                                <SelectIconPage icons={icons}
-                                                                      toggleIconSelectMode={toggleIconSelectMode}
-                                                                      active={selectIconMode}
-                                                                      pikedIcon={valuesForNewTimerSelector.icon}
-                                                                      changeValueForTimerPrototype={changeValueForTimerPrototype}/>
+                                <SelectIconPage toggleIconSelectMode={toggleIconSelectMode}
+                                                active={selectIconMode}
+                                                pikedIcon={valuesForNewTimerSelector.icon}
+                                                changeValueForTimerPrototype={changeValueForTimerPrototype}/>
                             </div>
                             <div>
                                 <label className={s.labelForInputs}>form color:</label>

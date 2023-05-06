@@ -1,8 +1,19 @@
-import React, {useCallback} from "react";
+import React from "react";
 import s from './SelectIconModal.module.css';
 import SelectIconInput from "./SelectIconInput";
+
+let icons = [];
+
+for (let i = 1; i <= 375; i++) {
+    const iconNumber = ('00' + i).slice(-3);
+    import(`../../../assets/icons/${iconNumber}.svg`).then(icon => {
+        icons.push({ id: i, value: icon.default });
+    });
+    console.log('произведен импорт');
+}
+
 const SelectIconModal = ({active, toggleIconSelectMode,
-                            icons, changeValueForTimerPrototype, pikedIcon}) => {
+                            changeValueForTimerPrototype, pikedIcon}) => {
 
     return (
         <div className={`${s.iconPage} ${active ? s.active : ''} buttons2`}>
@@ -13,17 +24,15 @@ const SelectIconModal = ({active, toggleIconSelectMode,
                 </div>
                 <div className={s.iconsBlock}>
                     {
-                        useCallback(() => {
-                            icons.map(({id, value}) => {
-                                return (
-                                    <SelectIconInput id={id}
-                                                     key={id}
-                                                     value={value}
-                                                     changeValueForTimerPrototype={changeValueForTimerPrototype}
-                                                     pikedIcon={pikedIcon}/>
-                                );
-                            })
-                        },[pikedIcon])
+                        icons.map(({id, value}) => {
+                            return (
+                                <SelectIconInput id={id}
+                                                 key={id}
+                                                 value={value}
+                                                 changeValueForTimerPrototype={changeValueForTimerPrototype}
+                                                 pikedIcon={pikedIcon}/>
+                            );
+                        })
                     }
                 </div>
             </div>
