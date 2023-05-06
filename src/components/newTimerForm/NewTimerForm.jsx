@@ -13,14 +13,14 @@ const NewTimerForm = ({newTimerCreateMode, initialValuesForTimerForm, changeForm
         setSelectIconMode(!selectIconMode);
     }, [selectIconMode]);
 
-    const changeValueForTimerPrototype = (e) => {
+    const changeValueForTimerPrototype = useCallback((e) => {
         let newValue = e.target.value;
         let currentName = e.target.name;
         if (currentName === 'name' && newValue.length >= 36) {
             newValue = newValue.slice(0,36);
         }
         setValueForNewTimer({[currentName]: newValue});
-    }
+    }, [selectIconMode]);
 
     return (
         <div style={{height: newTimerCreateMode ? '' : '0'}}

@@ -2,7 +2,7 @@ import s from './SelectIconModal.module.css';
 import React from "react";
 import {Field} from "formik";
 
-const SelectIconInput =(props) => {
+const SelectIconInput = React.memo( function SelectIconInput(props) {
     console.log('зарендерилась иконка');
 
     return (
@@ -15,6 +15,6 @@ const SelectIconInput =(props) => {
                    type="radio" name="icon" value={props.value} />
         </label>
     )
-};
+});
 
 export default SelectIconInput;

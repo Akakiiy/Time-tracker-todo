@@ -1,22 +1,21 @@
 .iconPage {
     position: absolute;
     top: -19px;
-    right: -69px;
+    right: -71px;
     width: 0;
-    height: 320px;
+    height: 325px;
     display: grid;
     place-items: center;
-    gap: 15px;
-    overflow-y: scroll;
-    overflow-x: hidden;
     transition: all .5s;
     z-index: 1;
 }
+
 .wrapper {
     position: relative;
     height: 100%;
     width: 100%;
 }
+
 .header {
     height: 30px;
     width: 0;
@@ -25,20 +24,20 @@
     cursor: pointer;
     transition: all .5s;
 }
+
 .active {
     width: 306px;
 }
-.activeHeader {
-    width: 291px;
-}
+
 .iconsBlock {
-    padding: 0 20px;
+    margin: 20px 0 0 20px;
     display: grid;
     place-items: center;
-    grid-template-rows: repeat(auto-fill, 50px);
-    grid-template-columns: repeat(auto-fill, 50px);
+    grid-template-rows: repeat(auto-fill, 40px);
+    grid-template-columns: repeat(auto-fill, 40px);
     gap: 15px;
 }
+
 .icon {
     display: grid;
     place-items: center;
@@ -46,8 +45,58 @@
     width: 40px;
     height: 40px;
 }
+
 .input {
     position: absolute;
     opacity: 0;
     z-index: -1;
+}
+
+.buttonsNextPrev {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.next {
+    width: 40px;
+}
+
+.prev {
+
+}
+
+.arrow {
+    position: absolute;
+    bottom: 22px;
+    width: 3vmin;
+    height: 3vmin;
+    background: transparent;
+    border-top: 1vmin solid white;
+    border-right: 1vmin solid white;
+    box-shadow: 0 0 0 lightgray;
+    transition: all 200ms ease;
+}
+.arrow.left {
+    left: 30%;
+    transform: translate3d(0, -50%, 0) rotate(-135deg);
+}
+
+.arrow.right {
+    right: 30%;
+    transform: translate3d(0, -50%, 0) rotate(45deg);
+}
+
+.arrow:hover {
+    border-color: orange;
+    box-shadow: 0.5vmin -0.5vmin 0 white;
+}
+
+.arrow:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-40%, -60%) rotate(45deg);
+    width: 200%;
+    height: 200%;
 }
