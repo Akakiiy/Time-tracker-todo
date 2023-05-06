@@ -1,3 +1,5 @@
+import startIcon from '../assets/icons/052.svg'
+
 let importedIcons = [];
 
 for (let i = 1; i <= 375; i++) {
@@ -11,7 +13,7 @@ for (let i = 1; i <= 375; i++) {
 const CHANGE_FORM_MODE = 'CHANGE_FORM_MODE';
 const SET_VALUES_FOR_NEW_TIMER = 'SET_VALUES_FOR_NEW_TIMER';
 
-let initialValuesForTimerForm = {geometry: 'square', name: '', icon: 'importedIcons[0].value', color: '#ffffff',colorText: '#000000'}
+let initialValuesForTimerForm = {geometry: 'square', name: '', icon: startIcon, color: '#ffffff',colorText: '#000000'}
 
 let initialValues = {
     newTimerCreateMode: false,

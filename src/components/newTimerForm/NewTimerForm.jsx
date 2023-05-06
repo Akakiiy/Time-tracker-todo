@@ -2,7 +2,7 @@ import s from './NewTimerForm.module.css';
 import {Formik, Field, Form, ErrorMessage} from "formik";
 import GeometryInput from "./CastomRadioInputs/GeometryInput";
 import NeonButton from "../../style/buttons/NeonButton";
-import SelectIconPage from "./SelectIconPage/SelectIconPage";
+import SelectIconPage from "./SelectIconModal/SelectIconModal";
 import {useState} from "react";
 import * as Yup from 'yup';
 
@@ -59,10 +59,10 @@ const NewTimerForm = ({newTimerCreateMode, initialValuesForTimerForm, changeForm
                                     <img src={valuesForNewTimerSelector.icon} alt={'selectedImg'} />
                                 </div>
                                 <SelectIconPage icons={icons}
-                                                toggleIconSelectMode={toggleIconSelectMode}
-                                                active={selectIconMode}
-                                                pikedIcon={valuesForNewTimerSelector.icon}
-                                                changeValueForTimerPrototype={changeValueForTimerPrototype}/>
+                                                                      toggleIconSelectMode={toggleIconSelectMode}
+                                                                      active={selectIconMode}
+                                                                      pikedIcon={valuesForNewTimerSelector.icon}
+                                                                      changeValueForTimerPrototype={changeValueForTimerPrototype}/>
                             </div>
                             <div>
                                 <label className={s.labelForInputs}>form color:</label>
