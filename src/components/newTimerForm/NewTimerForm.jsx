@@ -3,15 +3,15 @@ import {Formik, Field, Form, ErrorMessage} from "formik";
 import GeometryInput from "./CastomRadioInputs/GeometryInput";
 import NeonButton from "../../style/buttons/NeonButton";
 import SelectIconPage from "./SelectIconModal/SelectIconModal";
-import {useState} from "react";
+import {useCallback, useState} from "react";
 import * as Yup from 'yup';
 
 const NewTimerForm = ({newTimerCreateMode, initialValuesForTimerForm, changeFormMode, setValueForNewTimer, addTimer, valuesForNewTimerSelector}) => {
     const [selectIconMode, setSelectIconMode] = useState(false);
 
-    const toggleIconSelectMode = () => {
+    const toggleIconSelectMode = useCallback(() => {
         setSelectIconMode(!selectIconMode);
-    };
+    }, [selectIconMode]);
 
     const changeValueForTimerPrototype = (e) => {
         let newValue = e.target.value;

@@ -23,11 +23,3 @@ export const getInitialValuesForTimerFormSelector = createSelector(getInitialVal
     (initialValuesForTimerForm) => {
         return initialValuesForTimerForm;
 });
-
-const getIcons = (state) => {
-    return state.newTimerForm.icons;
-};
-export const getIconsSelector = createSelector(getIcons,
-    (icons) => {
-    return icons;
-});
